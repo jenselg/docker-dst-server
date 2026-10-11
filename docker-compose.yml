@@ -1,11 +1,24 @@
 version: '3.5'
 services:
-  dst-server:
-     image: jamesits/dst-server:latest
-     restart: "on-failure:5"
-     ports:
-        - "10999-11000:10999-11000/udp"
-        - "12346-12347:12346-12347/udp"
-     volumes:
-        - ~/.klei/DoNotStarveTogether:/data
-     stop_grace_period: 6m
+  dst_server:
+
+    container_name: dst-server
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    restart: "on-failure:5"
+
+    ports:
+      - "10999-11000:10999-11000/udp"
+      - "12346-12347:12346-12347/udp"
+
+    environment:
+      DST_CLUSTER_TOKEN: ${DST_CLUSTER_TOKEN}
+      DST_SERVER_ARCH: amd64
+
+    volumes:
+      - ./data:/data
+
+    stop_grace_period: 6m
