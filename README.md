@@ -1,12 +1,19 @@
 # Don't Starve Together Dedicated Server Docker Image
 
-They write their server setup instructions like sh*t, so we made this Docker image to simplify things.
+## Forked Version Changes/Fixes
+* use local build
+* glibc error fixed - updated Debian to bookworm
+* mapped the DST data folder inside the docker folder
+* DST_CLUSTER_TOKEN set via .env
 
-Please read the whole document before putting your hands on your server. 
-
-[![Build Status](https://dev.azure.com/nekomimiswitch/General/_apis/build/status/docker-dst-server?branchName=master)](https://dev.azure.com/nekomimiswitch/General/_build/latest?definitionId=80&branchName=master)
+## Quick How-To
+* create a .env file and set the `DST_CLUSTER_TOKEN` variable there
+* start server: `docker compose up -d`
+* stop server: `docker compose down`
 
 ----------
+
+# Original Documentation
 
 ## Versioning
 

@@ -1,4 +1,6 @@
 # Project specific ignored files
+data/
+.env
 cluster_token.txt
 
 # Created by https://www.gitignore.io/api/macos,windows,visualstudiocode
